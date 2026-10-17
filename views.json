@@ -5,12 +5,16 @@
     "subtitle": "Fictional demo or your selected database. Read-only.",
     "sections": [
       {
-        "title": "Orders",
-        "sql": "select * from order_book order by code"
+        "title": "Order value",
+        "sql": "select code,advertiser,owner,status,currency,fee_cents from order_book order by code"
+      },
+      {
+        "title": "Flight schedule",
+        "sql": "select code,campaign,publication,start_on,end_on,goal from placement_pacing order by code"
       },
       {
         "title": "Creative chase",
-        "sql": "select * from creative_queue order by creative_due"
+        "sql": "select code,campaign,owner,creative_due,start_on,days_overdue from creative_queue order by creative_due"
       }
     ]
   },
@@ -20,7 +24,7 @@
     "sections": [
       {
         "title": "Flight pacing",
-        "sql": "select * from placement_pacing order by code"
+        "sql": "select code,publication,goal,delivered,expected,shortfall,end_on from placement_pacing order by code"
       },
       {
         "title": "Makegood promises",

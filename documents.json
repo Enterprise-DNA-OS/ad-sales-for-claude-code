@@ -6,6 +6,11 @@
     "file": "code",
     "sections": [
       {
+        "title": "Advertiser and value",
+        "sql": "select code,advertiser,currency,fee_cents from order_book where id=$1",
+        "note": "The advertiser and agreed value recorded for this order."
+      },
+      {
         "title": "Order terms",
         "sql": "select code,name,owner,status,currency,booked_on,authorisation_reference from campaigns where id=$1",
         "note": "Internal working paper. Review against the signed order and source reports before sharing."
@@ -25,7 +30,7 @@
     "sections": [
       {
         "title": "Delivery against order",
-        "sql": "select v.* from placement_pacing v join placements p on p.id=v.id where p.campaign_id=$1 order by v.code",
+        "sql": "select v.code,v.publication,v.goal,v.delivered,v.shortfall,v.makegood_delivered,v.end_on from placement_pacing v join placements p on p.id=v.id where p.campaign_id=$1 order by v.code",
         "note": "Internal working paper. Review against the signed order and source reports before sharing."
       },
       {
