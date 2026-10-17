@@ -1,0 +1,19 @@
+{
+  "advertiser_code": "Advertiser Code",
+  "advertiser_name": "Advertiser Name",
+  "agency": "Agency",
+  "owner": "Order Owner",
+  "campaign_code": "Order Number",
+  "campaign_name": "Order Name",
+  "currency": "Currency",
+  "publication_code": "Publication Code",
+  "publication_name": "Publication Name",
+  "channel": "Channel",
+  "placement_code": "Placement ID",
+  "placement_name": "Placement Name",
+  "start_on": "Start Date",
+  "end_on": "End Date",
+  "goal": "Impression Goal",
+  "fee": "Total Price",
+  "creative_due": "Creative Due"
+}

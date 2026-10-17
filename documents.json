@@ -1,11 +1,51 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
-    "file": "name",
+    "name": "insertion-order",
+    "title": "Insertion order working paper",
+    "for_each": "select id,code from campaigns order by code",
+    "file": "code",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Order terms",
+        "sql": "select code,name,owner,status,currency,booked_on,authorisation_reference from campaigns where id=$1",
+        "note": "Internal working paper. Review against the signed order and source reports before sharing."
+      },
+      {
+        "title": "Placements",
+        "sql": "select p.code,p.name,u.name publication,p.start_on,p.end_on,p.goal,c.currency,p.fee_cents,p.creative_reference from placements p join publications u on u.id=p.publication_id join campaigns c on c.id=p.campaign_id where p.campaign_id=$1 order by p.code",
+        "note": "Internal working paper. Review against the signed order and source reports before sharing."
+      }
+    ]
+  },
+  {
+    "name": "delivery-statement",
+    "title": "Delivery statement",
+    "for_each": "select id,code from campaigns order by code",
+    "file": "code",
+    "sections": [
+      {
+        "title": "Delivery against order",
+        "sql": "select v.* from placement_pacing v join placements p on p.id=v.id where p.campaign_id=$1 order by v.code",
+        "note": "Internal working paper. Review against the signed order and source reports before sharing."
+      },
+      {
+        "title": "Daily source evidence",
+        "sql": "select p.code,d.delivered_on,d.impressions,d.reference,d.evidence from deliveries d join placements p on p.id=d.placement_id where p.campaign_id=$1 order by d.delivered_on",
+        "note": "Internal working paper. Review against the signed order and source reports before sharing."
+      }
+    ]
+  },
+  {
+    "name": "makegood-plan",
+    "title": "Makegood working paper",
+    "for_each": "select id,code from campaigns order by code",
+    "file": "code",
+    "sections": [
+      {
+        "title": "Agreed replacement impressions",
+        "sql": "select m.code,p.code placement,m.units,m.due_on,m.owner,m.acceptance_reference,m.status,m.completed_on,m.evidence from makegoods m join placements p on p.id=m.placement_id where p.campaign_id=$1 order by m.code",
+        "note": "Internal working paper. Review against the signed order and source reports before sharing."
+      }
     ]
   }
 ]

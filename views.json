@@ -1,13 +1,40 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "Ad Sales for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Advertising sales week",
+    "subtitle": "Fictional demo or your selected database. Read-only.",
     "sections": [
       {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "title": "Orders",
+        "sql": "select * from order_book order by code"
+      },
+      {
+        "title": "Creative chase",
+        "sql": "select * from creative_queue order by creative_due"
+      }
+    ]
+  },
+  {
+    "name": "delivery",
+    "title": "Delivery and makegoods",
+    "sections": [
+      {
+        "title": "Flight pacing",
+        "sql": "select * from placement_pacing order by code"
+      },
+      {
+        "title": "Makegood promises",
+        "sql": "select code,units,due_on,status,completed_on,evidence from makegoods order by due_on"
+      }
+    ]
+  },
+  {
+    "name": "records",
+    "title": "Account record review",
+    "sections": [
+      {
+        "title": "Review queue",
+        "sql": "select * from record_checks order by code"
       }
     ]
   }

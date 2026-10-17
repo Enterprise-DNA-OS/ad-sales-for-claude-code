@@ -1,0 +1,3 @@
+Advertiser Code,Advertiser Name,Agency,Order Owner,Order Number,Order Name,Currency,Publication Code,Publication Name,Channel,Placement ID,Placement Name,Start Date,End Date,Impression Goal,Total Price,Creative Due
+EXPORT-ADV,Export Advertiser Demo,Export Agency Demo,Demo Owner,EXPORT-IO,Export campaign,NZD,EXPORT-PUB,Export Publication Demo,display,EXPORT-1,Export placement 1,2027-01-10,2027-01-20,10000,240.50,2027-01-08
+EXPORT-ADV,Export Advertiser Demo,Export Agency Demo,Demo Owner,EXPORT-IO,Export campaign,NZD,EXPORT-PUB,Export Publication Demo,display,EXPORT-2,Export placement 2,2027-01-10,2027-01-20,10000,240.50,2027-01-08
